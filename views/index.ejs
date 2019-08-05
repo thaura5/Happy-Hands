@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <title>Happy Hands</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="vendors/linericon/style.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/themify-icons.css" />
+  <link rel="stylesheet" href="css/flaticon.css" />
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
+  <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css" />
+  <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+  <link rel="stylesheet" href="vendors/animate-css/animate.css" />
+  <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css" />
+  <!-- main css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+  <!--================Header Menu Area =================-->
+  <style>
+  .main_btn {
+    display: inline-block;
+    background:  #ebebfa;
+    padding: 0px 32px;
+    letter-spacing: 0.25px;
+    color: #f2f2f2;
+    font-family: "Roboto",sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 44px;
+    outline: none !important;
+    box-shadow: none !important;
+    text-align: center;
+    border: 1px solid #003380;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 300ms linear 0s;
+    border-radius: 5px;
+}
+
+
+ .header_area .navbar .nav .nav-item.active .nav-link {
+    color: #38a4fff0;
+    font-size: 15px;
+}
+
+  </style>
+  <header class="header_area">
+    <div class="top_menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="float-left">
+              <p>Phone: 0772500880</p>
+              <p>email: thau5theresa@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="float-right">
+              <ul class="right_side">
+                <li>
+                  <a href="/cart">
+                    gift card
+                  </a>
+                </li>
+                <li>
+
+                  <!-- <a href="/login">
+                    login
+                  </a>
+                  <a href="/signup">
+                    signup
+                  </a> -->
+                  <% if(user){ %>
+
+                <!--Welcome...!!--><li><a href=""><span class="fa fa-user"></span>
+
+                <% if (user.twitter.username != null) { %>
+
+                <%= user.twitter.username %>
+
+                <% } else if (user.google.email != null) { %>
+
+                <%= user.google.email %>
+
+                <% } else if (user.facebook.name  != null)  { %>
+
+                <%= user.facebook.name  %>
+
+                <% } else { %>
+
+                <%= user.local.lastname %>
+
+                <% } %>
+
+                </a>
+
+                </li>
+
+                <li><a href="/logout"><span class="fa fa-sign-out"></span>Logout</a></li>
+
+                <% } else{ %>
+
+                <li class="nav-item"><a class="button button-header"href="/login"><span class="fa fa-lock fa-lg"></span> Login</a></li>
+
+                <li class=""><a href="/signup"><span class="fa fa-user fa-lg"></span> Sign Up</a></li>
+
+                <% } %>
+              </li>
+              <li>
+                <a href="/tracking">
+                  track order
+                </a>
+              </li>
+
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main_menu">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="/">
+            <img src="img/logo.png" style="width: 150px;" alt="" />
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
+            <div class="row w-100 mr-0">
+              <div class="col-lg-7 pr-0">
+                <ul class="nav navbar-nav center_nav pull-right">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/category">Shop Category</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/single-product">Product Details</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/checkout">Product Checkout</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/cart">Shopping Cart</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false">Blog</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/single-blog">Blog Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false">Pages</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/tracking">Tracking</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/elements">Elements</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-5 pr-0">
+                <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                  <li class="nav-item">
+                    <a href="#" class="icons">
+                      <i class="ti-search" aria-hidden="true"></i>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="#" class="icons">
+                      <i class="ti-shopping-cart"></i>
+                    </a>
+                  </li>
+
+                  <a href="#" class="icons">
+                    <i class="ti-user" aria-hidden="true"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="#" class="icons">
+                    <i class="ti-heart" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+                  <li class="nav-item">
+  <!--================Header Menu Area =================-->
+
+  <!--================Home Banner Area =================-->
+  <section class="home_banner_area mb-40">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div class="banner_content row">
+          <div class="col-lg-12">
+            <p class="sub text-uppercase"style="color:#005ce6;">Creative Collection</p>
+            <h3><span style="color:#000000;">Get</span> Amazing <br />Crafts <span style="color:#000000;">And Yummy <br> Sweets</span></h3>
+
+            <a class="main_btn mt-40" href="/category"style="color:#005ce6;">View Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Home Banner Area =================-->
+
+  <!-- Start feature Area -->
+  <section class="feature-area section_gap_bottom_custom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="single-feature">
+            <a href="#" class="title">
+              <i class="fa fa-heart-o" style="font-size:35px;color:red;"></i>
+              <h3>Craft With Emotions</h3>
+            </a>
+            <p>Shall open divide a one</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-feature">
+            <a href="#" class="title">
+              <i class="fa fa-truck" style="font-size:35px;color:black"></i>
+              <h3>Deliver With Care</h3>
+            </a>
+            <p>Shall open divide a one</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-feature">
+            <a href="#" class="title">
+              <i class="fa fa-lightbulb-o" style="font-size:35px;color:Yellow;"></i>
+              <h3>Be Innovative</h3>
+            </a>
+            <p>Shall open divide a one</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-feature">
+            <a href="#" class="title">
+              <i class="flaticon-blockchain" style="color:green;"></i>
+              <h3>Secure payment</h3>
+            </a>
+            <p>Shall open divide a one</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End feature Area -->
+
+  <!--================ Feature Product Area =================-->
+  <section class="feature_product_area section_gap_bottom_custom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>CREATIVE COLLECTION</span></h2>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="http://www.whatsappdunia.com/uploads/images/5955e0100404b.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>VALENTINES DAY CARD</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR150.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="http://redlinesmonitor.info/wp-content/uploads/2018/09/greeting-card-ideas-handmade-greeting-card-ideas-handmade-greeting-cards-with-photos-handmade-greeting-cards-for-download-handmade-greeting-card-ideas-for-christmas.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>HAPPY BIRTHDAY CARD</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR150.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://lqp-p-imgs.s3-ap-south-1.amazonaws.com/faceview/ae/c9b/hh/a7b/affimgs/az-large-1772104.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>ANNIVERSARY CARDS</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR150.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End Feature Product Area =================-->
+
+  <!--================ Offer Area =================-->
+  <section class="offer_area">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="offset-lg-4 col-lg-6 text-center">
+          <div class="offer_content">
+            <h3 class="text-uppercase mb-40">all men’s collection</h3>
+            <h2 class="text-uppercase">50% off</h2>
+            <a href="#" class="main_btn mb-20 mt-5">Discover Now</a>
+            <p>Limited Time Offer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End Offer Area =================-->
+
+  <!--================ New Product Area =================-->
+  <section class="new_product_area section_gap_top section_gap_bottom_custom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>YUMMY ITEMS</span></h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="new_product">
+            <h5 class="text-uppercase">collection of 2019</h5>
+            <h3 class="text-uppercase">Men’s summer t-shirt</h3>
+            <div class="product-img">
+              <img class="img-fluid" src="https://i.pinimg.com/736x/40/88/7a/40887a51b0c40b525ce0f23bdd7edd18--brown-wedding-cakes-chocolate-wedding-cakes.jpg" alt="" />
+            </div>
+            <h4>LKR 150.00</h4>
+            <a href="#" class="main_btn">Add to cart</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-5 mt-lg-0">
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <div class="single-product">
+                <div class="product-img">
+                  <img class="img-fluid w-100" src="http://imshopping.rediff.com/imgshop/600-600/shopping/pixs/8969/w/WE125._special-birthday-cake.JPG" alt="" />
+                  <div class="p_icon">
+                    <a href="#">
+                      <i class="ti-eye"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-heart"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-shopping-cart"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="product-btm">
+                  <a href="#" class="d-block">
+                    <h4>ICCING CAKE</h4>
+                  </a>
+                  <div class="mt-3">
+                    <span class="mr-4">LKR500.00</span>
+                    <del></del>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="single-product">
+                <div class="product-img">
+                  <img class="img-fluid w-100" src="https://cafehops.com/wp-content/uploads/2018/07/Japanese-Cheesecake-Order-Online-Delivery-Bangalore-Cafe-Hops.jpg" alt="" />
+                  <div class="p_icon">
+                    <a href="#">
+                      <i class="ti-eye"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-heart"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-shopping-cart"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="product-btm">
+                  <a href="#" class="d-block">
+                    <h4>EGG CAKE</h4>
+                  </a>
+                  <div class="mt-3">
+                    <span class="mr-4">LKR100.00</span>
+                    <del></del>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="single-product">
+                <div class="product-img">
+                  <img class="img-fluid w-100" src="https://4.imimg.com/data4/BN/JQ/ANDROID-15101965/product-500x500.jpeg" alt="" />
+                  <div class="p_icon">
+                    <a href="#">
+                      <i class="ti-eye"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-heart"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-shopping-cart"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="product-btm">
+                  <a href="#" class="d-block">
+                    <h4>POONTHI</h4>
+                  </a>
+                  <div class="mt-3">
+                    <span class="mr-4">LKR35.00</span>
+                    <del></del>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="single-product">
+                <div class="product-img">
+                  <img class="img-fluid w-100" src="http://www.manjulaskitchen.com/blog/wp-content/uploads/boondi_ladoo.jpg" alt="" />
+                  <div class="p_icon">
+                    <a href="#">
+                      <i class="ti-eye"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-heart"></i>
+                    </a>
+                    <a href="#">
+                      <i class="ti-shopping-cart"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="product-btm">
+                  <a href="#" class="d-block">
+                    <h4>POONTHI</h4>
+                  </a>
+                  <div class="mt-3">
+                    <span class="mr-4">LKR30.00</span>
+                    <del></del>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End New Product Area =================-->
+
+  <!--================ Inspired Product Area =================-->
+  <section class="inspired_product_area section_gap_bottom_custom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>AMAZING COLLECTIONS</span></h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://ae01.alicdn.com/kf/HTB1fmWRLpXXXXbRaXXXq6xXFXXXk/White-Knit-Baby-boots-knit-girls-boots-knit-Baby-booties-handmade-baby-girl-shoes-knitted-baby.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>BABY SHOES</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR150.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://bestwishes4birthday.com/wp-content/uploads/D/hand%20make%20birthday%20card%20;%20hand-make-birthday-card-elegant-birthday-card-handmade-marianne-squirrel-with-tonic-number-of-hand-make-birthday-card.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>BIRTH DAY CARD</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR150.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://i.pinimg.com/736x/c0/5a/34/c05a34cd5269664b5bfcc8402cb1c461--homemade-gift-boxes-diy-gift-box.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>GIFT BOX</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR100.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="http://www.fastal.pro/wp-content/uploads/to-make-greeting-cards-barbicanbeauty-how-make-birthday-card-at-home.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>BIRTHDAY CARD</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR150.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://di2ponv0v5otw.cloudfront.net/posts/2018/04/11/5ace0faf3b5f82796c7a1f8a/m_5ace0fb4a44dbe9b7564d97f.jpeg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>HAND BAG</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR500.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="http://www.newbornbabystuff.com/wp-content/uploads/2017/04/crochet-baby-dress-crocheted-pattern-baby-dress-pinafore-jumper-on-crochetsqu.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>BABY CLOTHE</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR250.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://static.artfire.com/uploads/mfs/items/15/cf/large/15cfcd93f8b0807e8778e6eb194275ff3c9f29fbe796582588dce32b5f464a4d.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>JIMIKKI</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR100.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="single-product">
+            <div class="product-img">
+              <img class="img-fluid w-100" src="https://london.bridestory.com/images/c_fill,dpr_1.0,f_auto,fl_progressive,pg_1,q_80,w_680/v1/assets/61151720_710086679405517_858954310367538314_n-ry_rwpYlH/kreema-florist-and-decoration_paper-flower-for-graduation_10.jpg" alt="" />
+              <div class="p_icon">
+                <a href="#">
+                  <i class="ti-eye"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-heart"></i>
+                </a>
+                <a href="#">
+                  <i class="ti-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a href="#" class="d-block">
+                <h4>BOUQUET</h4>
+              </a>
+              <div class="mt-3">
+                <span class="mr-4">LKR100.00</span>
+                <del></del>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End Inspired Product Area =================-->
+
+  <!--================ Start Blog Area =================-->
+  <section class="blog-area section-gap">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>latest blog</span></h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="https://i.pinimg.com/originals/c0/1d/d8/c01dd860e52aed614164eb96dadba3df.jpg" alt="">
+            </div>
+            <div class="short_details">
+              <div class="meta-top d-flex">
+                <a href="#">By Admin</a>
+                <a href="#"><i class="ti-comments-smiley"></i>2 Comments</a>
+              </div>
+              <a class="d-block" href="/single-blog">
+                <h4>Ford clever bed stops your sleeping
+                  partner hogging the whole</h4>
+              </a>
+              <div class="text-wrap">
+                <p>
+                  Let one fifth i bring fly to divided face for bearing the divide unto seed winged divided light
+                  Forth.
+                </p>
+              </div>
+              <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="https://image.magicessence.com.au/data/dream-catchers/plain/coloured-feathers/DC3-dream-catcher-red.jpg" alt="">
+            </div>
+            <div class="short_details">
+              <div class="meta-top d-flex">
+                <a href="#">By Admin</a>
+                <a href="#"><i class="ti-comments-smiley"></i>2 Comments</a>
+              </div>
+              <a class="d-block" href="/single-blog">
+                <h4>Ford clever bed stops your sleeping
+                  partner hogging the whole</h4>
+              </a>
+              <div class="text-wrap">
+                <p>
+                  Let one fifth i bring fly to divided face for bearing the divide unto seed winged divided light
+                  Forth.
+                </p>
+              </div>
+              <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="https://i.pinimg.com/originals/62/4e/97/624e9765110dc1f55c1915948f934f0f.jpg" alt="">
+            </div>
+            <div class="short_details">
+              <div class="meta-top d-flex">
+                <a href="#">By Admin</a>
+                <a href="#"><i class="ti-comments-smiley"></i>2 Comments</a>
+              </div>
+              <a class="d-block" href="/single-blog">
+                <h4>Ford clever bed stops your sleeping
+                  partner hogging the whole</h4>
+              </a>
+              <div class="text-wrap">
+                <p>
+                  Let one fifth i bring fly to divided face for bearing the divide unto seed winged divided light
+                  Forth.
+                </p>
+              </div>
+              <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End Blog Area =================-->
+
+  <!--================ start footer Area  =================-->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h4>Top Products</h4>
+          <ul>
+            <li><a href="#">Managed Website</a></li>
+            <li><a href="#">Manage Reputation</a></li>
+            <li><a href="#">Power Tools</a></li>
+            <li><a href="#">Marketing Service</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Brand Assets</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Brand Assets</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Experts</a></li>
+            <li><a href="#">Agencies</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 single-footer-widget">
+          <h4>Newsletter</h4>
+          <p>You can trust us. we only send promo offers,</p>
+          <div class="form-wrap" id="mc_embed_signup">
+            <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+              method="get" class="form-inline">
+              <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Your Email Address '" required="" type="email">
+              <button class="click-btn btn btn-default">Subscribe</button>
+              <div style="position: absolute; left: -5000px;">
+                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+              </div>
+
+              <div class="info"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <div class="col-lg-4 col-md-12 footer-social">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-behance"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--================ End footer Area  =================-->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/stellar.js"></script>
+  <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+  <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+  <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+  <script src="vendors/isotope/isotope-min.js"></script>
+  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+  <script src="vendors/counter-up/jquery.counterup.js"></script>
+  <script src="js/mail-script.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+
+</html>
